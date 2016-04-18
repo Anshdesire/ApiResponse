@@ -1,0 +1,22 @@
+{
+    "name": "swapnil/ApiResponse",
+    "description": "Demo-package to give common place to handle api responses",
+    "authors": [
+        {
+            "name": "Swapnil Tripathi",
+            "email": "nswapt@gmail.com"
+        }
+    ],
+    "keywords": ["api","responses"],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swapnil\\ApiResponse\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "stable"
+}
