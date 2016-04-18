@@ -11,12 +11,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-      //dd($this);
-      // $this->publishes([
-      //      __DIR__.'/../config/exception-alert.php' => config_path('bebetter.exception-alert.php'),
-      //  ]);
-      //
-      //  $this->app['view']->addNamespace('exception-alert', __DIR__ . '/../resources/views');
 
        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
        $loader->alias('ApiResponse', 'Swapnil\ApiResponse\Facade');
