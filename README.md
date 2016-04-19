@@ -1,7 +1,5 @@
 # ApiResponse
 
-[![Php])]
-
 Maintained by @anshdesire, Laravel api reponse generatorin the laravel 5 application. and published to packagist(https://packagist.org/packages/swapnil/api-response-creator) .
 
 
