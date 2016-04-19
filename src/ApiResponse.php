@@ -6,23 +6,14 @@ use paginator;
 
 class ApiResponse
 {
-    protected $statusCode = 200;
 
-    public $STATUS_CODE = [
-        200 => 200,
-        422 => 422,
-        201 => 201,
-        404 => 404,
-        500 => 500,
-    ];
+    private $config = [];
 
-    public $statusCodeMessages = [
-        200 => 'Request successfully processed.',
-        422 => 'Unprocessed entity',
-        201 => 'Created.',
-        404 => '',
-        500 => 'Internal Server Error.',
-    ];
+    protected $statusCode;// = 200;
+
+    public $STATUS_CODE;
+
+    public $statusCodeMessages;
 
     public $errorCode = [];
 
@@ -38,32 +29,72 @@ class ApiResponse
 
 
 
-    protected $errorsList = [
-    	'2001' => [
-    		'error_message' => 'User not found or wrong credentials.',
-    		'error_code' => 2001,
-            'error_data' => '',
-    	],
+    protected $errorsList;
 
-    	'2002' => [
-    		'error_message' => '2002',
-    		'error_code' => 2002,
-            'error_data' => '',
-    	],
+    public function __construct()
+    {
+        $this->statusCode = config('swapnil.api-response.status_code', []);
 
-        '2003' => [
-            'error_message' => 'Unable to create.',
-            'error_code' => 2003,
-            'error_data' => '',
-        ],
+        if(empty($this->statusCode)){
+          $this->statusCode = 200;
+        }
 
-        '2004' => [
-            'error_message' => 'Validation error.',
-            'error_code' => 2004,
-            'error_data' => '',
-        ]
+        $this->STATUS_CODE = config('swapnil.api-response.status_code_list', []);
 
-    ];
+        if(empty($this->STATUS_CODE)){
+          $this->statusCode = [
+              200 => 200,
+              422 => 422,
+              201 => 201,
+              404 => 404,
+              500 => 500,
+          ];
+        }
+
+        $this->statusCodeMessages = config('swapnil.api-response.status_code_messages', []);
+
+        if(empty($this->statusCodeMessages)){
+          $this->statusCodeMessages = [
+              200 => 'Request successfully processed.',
+              422 => 'Unprocessed entity',
+              201 => 'Created.',
+              404 => '',
+              500 => 'Internal Server Error.',
+          ];
+        }
+
+        $this->errorsList = config('swapnil.api-response.errors_list', []);
+        if(empty($this->errorsList)){
+          $this->errorsList = [
+          	'2001' => [
+          		'error_message' => 'User not found or wrong credentials.',
+          		'error_code' => 2001,
+                  'error_data' => '',
+                ],
+
+          	'2002' => [
+          		'error_message' => '2002',
+          		'error_code' => 2002,
+                  'error_data' => '',
+                ],
+
+            '2003' => [
+                  'error_message' => 'Unable to create.',
+                  'error_code' => 2003,
+                  'error_data' => '',
+                ],
+
+            '2004' => [
+                  'error_message' => 'Validation error.',
+                  'error_code' => 2004,
+                  'error_data' => '',
+              ]
+
+          ];
+        }
+
+    } // end __construct
+
 
     /**
      * @return mixed

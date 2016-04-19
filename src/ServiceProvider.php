@@ -11,6 +11,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
+      //dd($this);
+      $this->publishes([
+           __DIR__.'/../config/api-response.php' => config_path('swapnil.api-response.php'),
+       ]);
+
+      //  $this->app['view']->addNamespace('exception-alert', __DIR__ . '/../resources/views');
 
        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
        $loader->alias('ApiResponse', 'Swapnil\ApiResponse\Facade');

@@ -1,6 +1,6 @@
 {
     "name": "swapnil/api-response-creator",
-    "description": "Demo-package to give common place to handle api responses",
+    "description": "Package to give common exit point to handle api responses wirh multiple error codes.",
     "authors": [
         {
             "name": "Swapnil Tripathi",
