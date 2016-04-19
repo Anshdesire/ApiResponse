@@ -35,9 +35,9 @@ return \ApiResponse::getStatusCodeList()[404];
 
 return \ApiResponse::respondWithPagination(Paginator $items, $data, $status= true); // if pagination data needs to be send then 
  
- Method chaingin can also be used here.
+Method chaining can also be used here.
  
- \ApiResponse::setStatusCode(200)->ApiResponse::respondWithPagination(Paginator $items, $data, $status= true);
+ return \ApiResponse::setStatusCode(200)->ApiResponse::respondWithPagination(Paginator $items, $data, $status= true);
  
  
  
