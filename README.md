@@ -60,5 +60,5 @@ You must install this service provider. Make this the very first provider in lis
 
 
 ## License
-The MIT License (MIT). Please see [LICENSE](https://github.com/deepak-kumar/ExceptionAlert/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [LICENSE](https://github.com/Anshdesire/ApiResponse/blob/master/LICENSE.txt) for more information.
 
