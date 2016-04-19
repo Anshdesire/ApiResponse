@@ -1,5 +1,6 @@
 # ApiResponse
-Maintained by @anshdesire, Laravel api reponse generatorin the laravel 5 application.
+Maintained by @anshdesire, Laravel api reponse generatorin the laravel 5 application. and published to packagist(https://packagist.org/packages/swapnil/api-response-creator) .
+
 
 ## Installation 
 
@@ -13,7 +14,7 @@ You must install this service provider. Make this the very first provider in lis
 ```php
 
 'providers' => [
-    'Swapnil\ApiResponse\ServiceProvider',,
+    'Swapnil\ApiResponse\ServiceProvider',
     //...
 ];
 ```
@@ -22,39 +23,50 @@ You must install this service provider. Make this the very first provider in lis
 
 ```php
 
-\ApiResponse::respond()
-\ApiResponse::setErrorCode() with error code given in cofig.
-	    '2001' => [
-    		'error_message' => 'User not found or wrong credentials.',
-    		'error_code' => 2001,
-            'error_data' => '',
-    	],
+return \ApiResponse::respond($data, $status = true,$headers = []);
 
-    	'2002' => [
-    		'error_message' => '2002',
-    		'error_code' => 2002,
-            'error_data' => '',
-    	],
+return \ApiResponse::setStatusCode(200);
 
-        '2003' => [
-            'error_message' => 'Unable to create.',
-            'error_code' => 2003,
-            'error_data' => '',
+return  \ApiResponse::setErrorCode(200); //with error code given in cofig.
+ 
+return \ApiResponse::getStatusCode();
+ 
+return \ApiResponse::getStatusCodeList()[404];
+ 
+ return \ApiResponse::respondWithPagination(Paginator $items, $data, $status= true); // if pagination data needs to be send then 
+ 
+ Method chaingin can also be used here.
+ 
+ \ApiResponse::setStatusCode(200)->ApiResponse::respondWithPagination(Paginator $items, $data, $status= true);
+ 
+ 
+ 
+ 
+ 
+ Standard json response structure
+ 
+ {
+  "status_code": 422,
+  "errors": [
+    {
+      "error_message": "Validation error.",
+      "error_code": 2004,
+      "error_data": {
+        "user_name": [
+          "The user name has already been taken."
         ],
-
-        '2004' => [
-            'error_message' => 'Validation error.',
-            'error_code' => 2004,
-            'error_data' => '',
+        "mobile": [
+          "The mobile has already been taken."
         ]
-        
-        
-  \ApiResponse::setStatusCode();
-  \ApiResponse::getStatusCode();
-  \ApiResponse::getStatusCodeList();
-  
-        
-        
+      }
+    }
+  ],
+  "data": [],
+  "paginator": [],
+  "success": false,
+  "success_message": "Unprocessed entity"
+}
+
 ```
 
 
