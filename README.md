@@ -19,6 +19,10 @@ You must install this service provider. Make this the very first provider in lis
     //...
 ];
 ```
+## Publish 
+
+php artisan vendor:publish
+
 
 ## Use
 
