@@ -8,7 +8,7 @@ class Facade extends \Illuminate\Support\Facades\Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+     protected static function getFacadeAccessor()
     {
         return 'swapnil.api-response';
     } // end getFacadeAccessor

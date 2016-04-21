@@ -11,7 +11,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-      //dd($this);
       $this->publishes([
            __DIR__.'/../config/api-response.php' => config_path('swapnil.api-response.php'),
        ]);
