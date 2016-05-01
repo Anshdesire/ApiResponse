@@ -153,8 +153,11 @@ class ApiResponse
      * response not found error
      * @return object
      */
-    public function respondNotFound($message = config('swapnil.api-response.resource_not_found'))
+    public function respondNotFound($message = '')
     {
+        if(empty($message)){
+            $message = config('swapnil.api-response.resource_not_found'); 
+        }
         return $this->setStatusCode($this->STATUS_CODE[404])->respondWithError($message);
     }
 
@@ -162,8 +165,11 @@ class ApiResponse
      * respond internal error
      * @return object
      */
-    public function respondInternalError($message = config('swapnil.api-response.internal_server_error'))
+    public function respondInternalError($message = '')
     {
+        if(empty($message)){
+            $message = config('swapnil.api-response.internal_server_error'); 
+        }
         return $this->setStatusCode($this->STATUS_CODE[500])->respond([],$message,[]);
     }
 
